@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<img class="clean" onclick="clean()" src="https://img.icons8.com/flat_round/64/000000/delete-sign.png">
+	
+	<div id="field">
+		
+	</div>
+
+	<div id="buttons">
+		<button id="sete" onclick="regainButtonValue('7')">7</button>
+		<button id="oito" onclick="regainButtonValue('8')">8</button>
+		<button id="nove" onclick="regainButtonValue('9')">9</button>
+		<button id="soma" onclick="regainButtonValue('+')">+</button>
+		<button id="quatro" onclick="regainButtonValue('4')">4</button>
+		<button id="cinco" onclick="regainButtonValue('5')">5</button>
+		<button id="seis" onclick="regainButtonValue('6')">6</button>
+		<button id="subtracao" onclick="regainButtonValue('-')">-</button>
+		<button id="um" onclick="regainButtonValue('1')">1</button>
+		<button id="dois" onclick="regainButtonValue('2')">2</button>
+		<button id="tres" onclick="regainButtonValue('3')">3</button>
+		<button id="multiplicacao" onclick="regainButtonValue('*')">*</button>
+		<button id="ponto" onclick="regainButtonValue('.')">.</button>
+		<button id="zero" onclick="regainButtonValue('0')">0</button>
+		<button id="igual" onclick="calculateResult()">=</button>
+		<button id="divisao" onclick="regainButtonValue('/')">/</button>
+	</div>
+
+	<script>
+		function regainButtonValue(value) {
+			var field = document.getElementById('field');
+			if(value == '=') {
+				var result = eval(field.innerHTML);
+				field.innerHTML = result;
+				return 0;
+			}
+			var result = field.innerHTML += value;
+		}
+
+		function calculateResult() {
+			regainButtonValue('=')
+		}
+
+		function clean() {
+			field.innerHTML = null;
+		}
+	</script>
+</body>
+</html>
